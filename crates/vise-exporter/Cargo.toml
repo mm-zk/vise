@@ -1,0 +1,36 @@
+[package]
+name = "vise-exporter"
+description = "Prometheus exporter for metrics defined using `vise`"
+readme = "README.md"
+version.workspace = true
+edition.workspace = true
+authors.workspace = true
+repository.workspace = true
+license.workspace = true
+keywords.workspace = true
+categories.workspace = true
+
+[package.metadata.docs.rs]
+all-features = true
+# Set `docsrs` to enable unstable `doc(cfg(...))` attributes.
+rustdoc-args = ["--cfg", "docsrs"]
+
+[dependencies]
+vise = { version = "0.1.0", path = "../vise" }
+
+hyper.workspace = true
+metrics-exporter-prometheus = { workspace = true, optional = true }
+once_cell.workspace = true
+tokio = { workspace = true, features = ["time"] }
+tracing.workspace = true
+
+[dev-dependencies]
+doc-comment.workspace = true
+metrics.workspace = true
+tokio = { workspace = true, features = ["rt", "macros"] }
+version-sync.workspace = true
+
+[features]
+default = []
+# Enables exporting metrics defined with the `metrics` façade
+legacy = ["metrics-exporter-prometheus"]
