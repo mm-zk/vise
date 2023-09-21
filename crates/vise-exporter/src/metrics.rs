@@ -7,7 +7,6 @@ use vise::{Buckets, EncodeLabelSet, EncodeLabelValue, Family, Global, Histogram,
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash, EncodeLabelValue, EncodeLabelSet)]
 #[metrics(label = "facade")]
 pub(crate) enum Facade {
-    #[cfg(feature = "legacy")]
     Metrics,
     Vise,
 }
@@ -15,7 +14,6 @@ pub(crate) enum Facade {
 impl fmt::Display for Facade {
     fn fmt(&self, formatter: &mut fmt::Formatter<'_>) -> fmt::Result {
         formatter.write_str(match self {
-            #[cfg(feature = "legacy")]
             Self::Metrics => "metrics",
             Self::Vise => "vise",
         })

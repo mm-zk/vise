@@ -6,8 +6,7 @@ use prometheus_client::{
 use std::hash::Hash;
 
 use crate::{
-    traits::{GaugeValue, HistogramValue},
-    wrappers::{Family, Gauge, Histogram},
+    wrappers::{Family, Gauge, GaugeValue, Histogram, HistogramValue},
     Buckets,
 };
 

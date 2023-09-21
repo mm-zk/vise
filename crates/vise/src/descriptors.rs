@@ -70,7 +70,7 @@ mod tests {
     use std::collections::HashMap;
 
     use super::*;
-    use crate::{metrics::Metrics, tests::TestMetrics};
+    use crate::{tests::TestMetrics, traits::Metrics};
 
     #[test]
     fn describing_metrics() {
